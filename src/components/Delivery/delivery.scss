@@ -1,0 +1,52 @@
+$yellow: #FCBE00;
+
+.general{
+    padding: 30px 0px;
+    .left{
+        i{
+            color: $yellow ;
+            font-size: 30px;
+            padding-right: 20px;
+        }
+    }
+    .right{
+        .first{
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .second{
+            font-size: 15px;
+        }
+    }
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) { 
+    .general{
+        width: 80%;
+        margin: auto;
+        .box{
+            margin-bottom: 30px;
+        }
+    }
+
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) { 
+    .general{
+        width: 80%;
+        margin: auto;
+        .box{
+            margin-bottom: 40px;
+        }
+    }
+ }
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px) {  }

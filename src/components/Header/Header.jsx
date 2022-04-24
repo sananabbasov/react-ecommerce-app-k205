@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { BASE_URL } from '../../api/config';
 import '../Header/header.scss'
 
 function Header() {
@@ -6,6 +7,20 @@ function Header() {
     const [a, setActive] = useState();
     const [b, setDropActive] = useState();
     const [c, setshopActive] = useState();
+    const[category, setCategory] = useState([]);
+
+
+    const getCAtegories = async() =>{
+       await fetch(BASE_URL + 'products/categories')
+        .then(a => a.json())
+        .then(data => setCategory(data))
+    }
+
+    useEffect(() =>{
+        getCAtegories()
+    },[])
+
+
     const dropdown = () => {
         a == 'active' ? setActive('') : setActive('active');
     }
@@ -104,15 +119,14 @@ function Header() {
             <div className="bottomNav d-flex justify-content-between">
                 <div className="left">
                     <div className="shop-list">
-                        <span onClick={e => shopactive()}><i class="fa-solid fa-bars"></i>  SHOP BY DEPARTMENT</span>
+                        <span className='display-span' onClick={e => shopactive()}><i  class="fa-solid fa-bars display-icon"></i>  SHOP BY DEPARTMENT</span>
                         <ul className={`shop-listt ${c}`}>
-                            <li>All Categories</li>
-                            <hr />
-                            <li>Phone and electronics</li>
-                            <hr />
-                            <li>Best Seller Products </li>
-                            <hr />
-                            <li>Top 10 Offers</li>
+
+                            {
+                                category.map(e=>(
+                                    <li key={Math.floor(Math.random() * 100000000)} className='list-group-item'>{e}</li>
+                                ))
+                            }
                         </ul>
                     </div>
                 </div>

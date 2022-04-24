@@ -4,7 +4,6 @@ $yellow: #FCBE00;
 $color : #fff;
 
 #header {
-
     background-color: $base;
     color: $color;
 
@@ -176,7 +175,7 @@ $color : #fff;
         margin: auto;
         padding-bottom: 10px;
         position: relative;
-
+        z-index: 9999;
         .left {
             .shop-list {
                 cursor: pointer;
@@ -212,9 +211,10 @@ $color : #fff;
                     li {
                         list-style: none;
                         transition: 0.3s ease-in-out;
-
+                        
                         &:hover {
                             color: $yellow;
+                            
                         }
                     }
                 }
@@ -388,3 +388,71 @@ $color : #fff;
         }
     }
 }
+
+
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+    #header{
+        .topNav{
+        width: 100%;
+            .right{
+                display: none;
+            }
+            .left{
+                .number{
+                    display: none;
+                }
+            }
+        }
+        .nav{
+            .center{
+                display: none;
+            }
+        }
+        .bottomNav{
+            .display-span{
+                display: none;
+                opacity: 0;
+            }
+            .center{
+                display: none;
+            }
+            .right{
+                span{
+                   margin-right: 30px;
+                }
+            }
+        }
+    }
+
+
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) { 
+    #header{
+        .topNav{
+            .right{
+                display: none;
+            }
+        }
+        .nav{
+            .center{
+                display: none;
+            }
+        }
+        .bottomNav{
+            .center{
+                display: none;
+            }
+        }
+    }
+
+ }
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) {  }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px) {  }

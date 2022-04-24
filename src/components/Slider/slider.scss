@@ -1,0 +1,35 @@
+$base: #263C97;
+$blue: #16BCDC;
+$yellow: #FCBE00;
+$color : #fff;
+
+.mySlider{
+    position: relative;
+    img{
+        width: 100%;
+        height: 67vh;
+    }
+    .deal{
+        position: absolute;
+        top: 20%;
+        h3{
+            font-size: 40px;
+        }
+        h6{
+            width: 50%;
+            font-size: 20px;
+        }
+        button{
+            cursor: pointer;
+            border: none;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: 0.3s ease-in-out;
+            background-color: white;
+            &:hover{
+                background-color: $yellow;
+            }
+        }
+    }
+}
