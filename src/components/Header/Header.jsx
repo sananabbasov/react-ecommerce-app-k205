@@ -76,7 +76,6 @@ function Header() {
                                 <li>New Arrivals</li>
                             </ul>
                         </div>
-
                         <input type="text" placeholder='I m shopping for..' />
                         <button>
                             <i class="fa-solid fa-magnifying-glass search"></i>
