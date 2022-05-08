@@ -11,7 +11,7 @@ function Header() {
 
 
     const getCAtegories = async() =>{
-       await fetch(BASE_URL + 'products/categories')
+       await fetch(BASE_URL + 'category/getall')
         .then(a => a.json())
         .then(data => setCategory(data))
     }
@@ -22,13 +22,13 @@ function Header() {
 
 
     const dropdown = () => {
-        a == 'active' ? setActive('') : setActive('active');
+        a === 'active' ? setActive('') : setActive('active');
     }
     const dropactive = () => {
-        b == 'active' ? setDropActive('') : setDropActive('active');
+        b === 'active' ? setDropActive('') : setDropActive('active');
     }
     const shopactive = () => {
-        c == 'active' ? setshopActive('') : setshopActive('active');
+        c === 'active' ? setshopActive('') : setshopActive('active');
     }
 
     return (
@@ -123,7 +123,7 @@ function Header() {
 
                             {
                                 category.map(e=>(
-                                    <li key={Math.floor(Math.random() * 100000000)} className='list-group-item'>{e}</li>
+                                    <li key={Math.floor(Math.random() * 100000000)} className='list-group-item'>{e.name}</li>
                                 ))
                             }
                         </ul>

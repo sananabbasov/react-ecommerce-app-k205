@@ -7,6 +7,7 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import { Navigation, Scrollbar, A11y } from 'swiper';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import { Link } from 'react-router-dom';
 
 
 function Days() {
@@ -15,9 +16,9 @@ function Days() {
 
     const [products, setProducts] = useState([]);
     const getProducts = async () => {
-        await fetch(BASE_URL + "products")
+        await fetch(BASE_URL + "product/productlist")
             .then((res) => res.json())
-            .then((data) => setProducts(data));
+            .then((data) => setProducts(data.message));
     };
 
     useEffect(() => {
@@ -47,59 +48,70 @@ function Days() {
 
             <Swiper
                 modules={[Navigation, Scrollbar, A11y]}
-                spaceBetween={50}
-                slidesPerView={3}
+                spaceBetween={1}
+                slidesPerView={5}
                 navigation
-
                 scrollbar={{ draggable: true }}
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
             >
-                {products.map((item) => (
-                    <SwiperSlide>
-                        <div className="containerr">
-                            <div className="row align-items-center">
-                                <div className="col-lg-12">
-                                    <div className="box">
-                                        <div className="image">
-                                            <img width="100%" src="https://cdn.pixabay.com/photo/2022/04/27/20/52/gosling-7161308_960_720.jpg" alt="" />
-                                            <div className="icons">
-                                                <i class="fa-solid fa-eye icon"></i><br />
-                                                <i class="fa-solid fa-heart icon"></i><br />
-                                                <i class="fa-solid fa-layer-group icon"></i>
-                                            </div>
-                                        </div>
-                                        <div className="text">
-                                            <span className="box1 title">{item.title}</span>
-                                            <div className="d-flex align-items-center">
-                                                <span className="star">
-                                                    <StarOutlineIcon />
-                                                    <StarOutlineIcon />
-                                                    <StarOutlineIcon />
-                                                    <StarOutlineIcon />
-                                                    <StarOutlineIcon />
-                                                </span>
-                                                <span>(01 review)</span>
-                                            </div>
-                                            <span className='box1 number'><del className='del'>$270</del>$200</span>
-                                            <div className="box2">
-                                                <div className="red">
+                {
+                    products.map(product => (
+                        <SwiperSlide key={product.id}>
+                            
+                            <div className="containerr">
+                                <div className="row align-items-center">
+                                    <div className="col-lg-12">
+                                        <div className="box">
+                                            <div className="image">
+                                                <img width="100%" src={product.productPicture[0]} alt="" />
+                                                <div className="icons">
+                                                    <i class="fa-solid fa-eye icon"></i><br />
+                                                    <i class="fa-solid fa-heart icon"></i><br />
+                                                    <i class="fa-solid fa-layer-group icon"></i>
                                                 </div>
                                             </div>
-                                            <span>Sold:315/1225</span>
-                                            <div className="button">
-                                                <button>ADD TO CART</button>
+                                            <div className="text">
+                                                <span className="box1 title">
+                                                <Link to={'detail/' + product.id}>
+                                                    {product.name}
+                                                    </Link>
+                                                    </span>
+                                                   
+                                                <div className="d-flex align-items-center">
+                                                    <span className="star">
+                                                        <StarOutlineIcon />
+                                                        <StarOutlineIcon />
+                                                        <StarOutlineIcon />
+                                                        <StarOutlineIcon />
+                                                        <StarOutlineIcon />
+                                                    </span>
+                                                    <span>(01 review)</span>
+                                                </div>
+                                                <span className='box1 number'><del className='del'>₼ 2700</del>{product.price} ₼</span>
+                                                <div className="box2">
+                                                    <div className="red">
+                                                    </div>
+                                                </div>
+                                                <span>Sold:315/1225</span>
+                                                <div className="button">
+                                                    <button>ADD TO CART</button>
+                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
 
+
                                 </div>
-
-
                             </div>
-                        </div>
-                    </SwiperSlide>
-                ))}
+                           
+                          
+                        </SwiperSlide>
+
+
+                    ))
+                }
 
             </Swiper>
         </div>

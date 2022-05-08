@@ -1,0 +1,27 @@
+#detail{
+    .shop{
+        .top{
+            padding: 40px 0px;
+            span{
+                a{
+                    text-decoration: none;
+                    color: grey;
+                }
+            }
+        }
+        .bottom{
+            .left{
+                .sml-picture{
+                    border: 1px solid rgb(198, 198, 198);
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    border-radius: 5px;
+                    display: none;
+                    &.active{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

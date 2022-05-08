@@ -7,9 +7,9 @@ import { BASE_URL } from "./../../api/config";
 function Slider() {
   const [products, setProducts] = useState([]);
   const getProducts = async () => {
-    await fetch(BASE_URL + "products")
+    await fetch(BASE_URL + "product/productlist")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data.message));
   };
 
   useEffect(() => {
@@ -19,15 +19,15 @@ function Slider() {
   return (
     <div className="mySlider">
       <Swiper>
-        {products.map((item) => (
+        {products.filter(x=>x.isSlider === true).map((item) => (
           <SwiperSlide>
               <img
-                  src="https://cdn.pixabay.com/photo/2022/04/03/22/05/buildings-7109918_960_720.jpg"
+                  src={item.coverPhoto}
                   alt=""
                 />
                 <div className="container">
                     <div className="deal">
-                        <h3>{item.title}</h3><br />
+                        <h3>{item.name}</h3><br />
                         <h6>{item.description}</h6><br />
                         <button>DISCOVER NOW</button>
                     </div>
