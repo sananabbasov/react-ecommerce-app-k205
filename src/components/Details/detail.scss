@@ -1,3 +1,7 @@
+$blue: #0068C9;
+$yellow: #FCBE00;
+$turquoise: #16bcdc;
+
 #detail{
     .shop{
         .top{
@@ -16,9 +20,100 @@
                     padding: 10px;
                     margin-bottom: 10px;
                     border-radius: 5px;
-                    display: none;
                     &.active{
                         display: block;
+                    }
+                }
+            }
+            .right{
+                .first{
+                    color: $blue;
+                    font-weight: bold;
+                }
+                .iconBox{
+                    .icons{
+                        color: $yellow ;
+                    }
+                    .text{
+                        span{
+                            padding-left: 10px;
+                            color: grey;
+                            font-size: 15px;
+                        }
+                       
+                    }
+                    
+                }
+                .number{
+                    padding: 10px 0px 0px 0px;
+                    font-weight: bold;
+                    font-size: 25px;
+                    font-family: "Rubik", sans-serif;
+                }
+                hr{
+                    border: 0.1px solid rgb(184, 184, 184);
+                }
+                ul{
+                    list-style: disc;
+                    li{
+                        font-size: 16px;
+                        color: rgb(101, 101, 101);
+                    }
+                }
+                p{
+                    .stock{
+                        color: $turquoise;
+                    }
+                }
+                .buttonBox{
+                    border: 1px solid rgb(196, 196, 196);
+                    margin-right: 20px;
+                    padding: 14px 0px;
+                button{
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    padding: 0px 25px;
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+                .count{
+                    padding: 30px 20px;
+                }
+                }
+                .addToCartBox{
+                    
+                    button{
+                        border: none;
+                        background-color: $yellow;
+                        color: black;
+                        padding: 14px 20px;
+                        transition: 0.3s ease-in-out;
+                        border:  1px solid transparent;
+                        &:hover{
+                            background-color: white;
+                            border: 1px solid grey;
+                        }
+                    }
+                   
+                }
+                .add{
+                    margin-top: 20px;
+                    .hoverBox{
+                        padding: 20px 20px 20px 0px;
+                        color: grey;
+                        font-size: 15px;
+                        i{
+                            padding-right: 5px;
+                        }
+                    }
+                    .rightIcon{
+                        padding: 20px 20px 20px 0px;
+                        color: grey;
+                        font-size: 15px;
+                        i{
+                            padding-right: 5px;
+                        }
                     }
                 }
             }
