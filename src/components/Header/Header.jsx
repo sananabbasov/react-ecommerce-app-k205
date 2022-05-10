@@ -149,18 +149,15 @@ function Header() {
                                         <div className="buttonDiv">
                                             <button className='view'>
                                                <Link to='/cart'>View cart</Link> </button><br/>
-                                            <button className='check'>CHECKOUT</button>
+                                            <button className='check'>
+                                               <Link to="/checkout">CHECKOUT</Link> </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-
             </div>
             <hr />
             <div className="bottomNav d-flex justify-content-between">
