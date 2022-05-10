@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { BASE_URL } from '../../api/config';
 import '../Header/header.scss'
 
@@ -7,18 +8,19 @@ function Header() {
     const [a, setActive] = useState();
     const [b, setDropActive] = useState();
     const [c, setshopActive] = useState();
-    const[category, setCategory] = useState([]);
+    const [category, setCategory] = useState([]);
 
 
-    const getCAtegories = async() =>{
-       await fetch(BASE_URL + 'category/getall')
-        .then(a => a.json())
-        .then(data => setCategory(data))
+    const getCAtegories = async () => {
+        await fetch(BASE_URL + 'category/getall')
+            .then(a => a.json())
+            .then(data => setCategory(data))
     }
 
-    useEffect(() =>{
+
+    useEffect(() => {
         getCAtegories()
-    },[])
+    }, [])
 
 
     const dropdown = () => {
@@ -97,15 +99,61 @@ function Header() {
                             <i class="fa-solid fa-heart"></i>
                         </div>
                         <div className="right">
-                            <span>Login <br /> My Account</span>
+                            <span>Favorite <br /> My Wishlist</span>
                         </div>
                     </div>
                     <div className="boxOne d-flex align-items-center">
                         <div className="left">
                             <i class="fa-solid fa-bag-shopping"></i>
                         </div>
-                        <div className="right">
-                            <span>Login <br /> My Account</span>
+                        <div className="rightt">
+                            <div className='cart'>
+                               <span>Your Cart: <br />$00.00</span> 
+                                <div className="box">
+                                    <div className="top">
+                                        <span className='header6'>Your Cart </span>
+                                        <span className='item'>(1 Item in Cart)</span>
+                                    </div>
+                                    <hr />
+                                    <div className="center">
+                                        <div className="row">
+                                            <div className="col-lg-4">
+                                                <img width='100%' src="https://cdn.pixabay.com/photo/2022/02/12/19/58/cat-7009836_960_720.jpg" alt="" />
+                                            </div>
+                                            <div className="col-lg-8">
+                                                <div className="row align-items-center justify-content-between">
+                                                    <div className="col-lg-10">
+                                                        <h6 className='samsung'>Samsung C49J89: £875, Debenhams Plus</h6>
+                                                        <p className='price'>$255.00</p>
+                                                    </div>
+                                                    <div className="col-lg-2">
+                                                        <i class="fa-solid fa-x"></i>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div className="bottom">
+                                        <div className="text">
+                                            <div className="row">
+                                                <div className="col-lg-6">
+                                                    <span className='total'>Subtotal</span>
+                                                </div>
+                                                <div className="col-lg-6">
+                                                    <span className='money'>$255.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="buttonDiv">
+                                            <button className='view'>
+                                               <Link to='/cart'>View cart</Link> </button><br/>
+                                            <button className='check'>CHECKOUT</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -118,11 +166,11 @@ function Header() {
             <div className="bottomNav d-flex justify-content-between">
                 <div className="left">
                     <div className="shop-list">
-                        <span className='display-span' onClick={e => shopactive()}><i  class="fa-solid fa-bars display-icon"></i>  SHOP BY DEPARTMENT</span>
+                        <span className='display-span' onClick={e => shopactive()}><i class="fa-solid fa-bars display-icon"></i>  SHOP BY DEPARTMENT</span>
                         <ul className={`shop-listt ${c}`}>
 
                             {
-                                category.map(e=>(
+                                category.map(e => (
                                     <li key={Math.floor(Math.random() * 100000000)} className='list-group-item'>{e.name}</li>
                                 ))
                             }
@@ -215,7 +263,7 @@ function Header() {
                             </div>
                         </li>
                         <li className='blog'>BLOG
-                        <div className="dropdown-menu2 row">
+                            <div className="dropdown-menu2 row">
                                 <div>
                                     <p>Blog</p>
                                     <p>Blog detail</p>
@@ -223,7 +271,7 @@ function Header() {
                             </div>
                         </li>
                         <li className='pages'>PAGES
-                        <div className="dropdown-menu2 row">
+                            <div className="dropdown-menu2 row">
                                 <div>
                                     <p>My account</p>
                                     <p>Product details</p>
@@ -238,7 +286,7 @@ function Header() {
 
                 </div>
                 <div className="right">
-                    <span>Spend $120 more and get free shipping!</span>
+                    <span>Spend $120 more and get free shipping!</span> 
                 </div>
             </div>
         </section>
