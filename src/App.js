@@ -8,22 +8,12 @@ import MyRoutes from './routes/MyRoutes';
 
 function App() {
 
-  const [cartCount, setCartCount] = useState(0)
 
-  const data ={
-    cartCount,
-    setCartCount
-  }
   return (
     <div className="App">
-      <CartContext.Provider value={data}>
-          <Header />
-          <MyRoutes/>
-          <Footer/>
-      </CartContext.Provider>
-
-      
-     
+      <Header />
+      <MyRoutes />
+      <Footer />
     </div>
   );
 }

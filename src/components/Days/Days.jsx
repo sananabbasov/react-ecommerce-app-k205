@@ -24,6 +24,8 @@ function Days() {
     useEffect(() => {
         getProducts();
     }, []);
+
+    console.log(products);
     return (
         <div className='myslider'>
 
@@ -52,8 +54,6 @@ function Days() {
                 slidesPerView={5}
                 navigation
                 scrollbar={{ draggable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
             >
                 {
                     products.map(product => (
@@ -64,7 +64,7 @@ function Days() {
                                     <div className="col-lg-12">
                                         <div className="box">
                                             <div className="image">
-                                                <img width="100%" src={product.productPicture[0]} alt="" />
+                                                <img width="100%" src={product.productPictures[0]} alt="" />
                                                 <div className="icons">
                                                     <i class="fa-solid fa-eye icon"></i><br />
                                                     <i class="fa-solid fa-heart icon"></i><br />
